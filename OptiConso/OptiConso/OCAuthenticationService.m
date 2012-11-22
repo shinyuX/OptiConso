@@ -1,0 +1,121 @@
+//
+//  OCAuthenticationService.m
+//  OptiConso
+//
+//  Created by Epi Mac on 11/13/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//
+
+#import "OCAuthenticationService.h"
+
+@implementation OCAuthenticationService
+
+@synthesize parser;
+@synthesize adapter;
+@synthesize urlConnection;
+@synthesize delegate;
+@synthesize data;
+@synthesize token;
+
+- (id)initWithDelegate:(id<ACSDelegate>)theDelegate
+{
+    self = [super init];
+    if (self)
+    {
+        self.delegate = theDelegate;
+        self.data = [[NSMutableData alloc] init];
+        self.adapter = [[SBJsonStreamParserAdapter alloc] init];
+        self.adapter.delegate = self;
+        self.parser = [[SBJsonStreamParser alloc] init];
+        self.parser.delegate = self.adapter;        
+        self.parser.supportMultipleDocuments = YES;
+    }
+    return self;
+}
+
+- (void)launchConnectionForUsername:(NSString *)username pass:(NSString *)pass
+{
+    self.data = [[NSMutableData alloc] init];
+    
+    NSString *url = [NSString stringWithFormat:@"http://www.opticonso.fr/api/v1/tokens.json"];
+    NSString *bodyContent = [NSString stringWithFormat:@"username=%@&password=%@", username, pass];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10.0];  
+    [request setHTTPShouldHandleCookies:NO];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:[bodyContent dataUsingEncoding:NSUTF8StringEncoding]];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    self.urlConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    [self.urlConnection start];
+}
+
+#pragma mark - NSURLConnection Delegate
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response 
+{
+    if ([response isKindOfClass:[NSHTTPURLResponse class]])
+    {
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+        int theStatusCode = [httpResponse statusCode];
+        if (theStatusCode != 200)
+        {
+            [connection cancel];
+            if (![self.delegate isKindOfClass:[NSNull class]])
+                [self.delegate ACSDidEndWithError];
+        }
+    }
+}
+
+- (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace
+{
+    return YES;
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)theData
+{
+    [self.data appendData:theData];
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    if (![self.delegate isKindOfClass:[NSNull class]])
+        [self.delegate ACSDidEndWithError];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    SBJsonStreamParserStatus status = [self.parser parse:data];
+    if (![self.delegate isKindOfClass:[NSNull class]])
+    {
+        if (status == SBJsonStreamParserError)
+            [self.delegate ACSDidEndWithError];
+        else
+            [self.delegate ACSDidFinishParsing:self.token];
+    }
+}
+
+#pragma mark - SBJsonStreamParserAdapterDelegate methods
+
+- (void)handleBarcodeContent:(NSString *)content
+{
+}
+
+- (void)parser:(SBJsonStreamParser *)parserr foundArray:(NSArray *)array
+{
+    for (NSDictionary *dict in array)
+    {
+        [self parser:parserr foundObject:dict];
+    }
+}
+
+- (void)parser:(SBJsonStreamParser *)parserr foundObject:(NSDictionary *)dict
+{
+    // We found a token object
+    if ([dict objectForKey:@"token"])
+    {
+        self.token = [dict objectForKey:@"token"];
+    }
+}
+
+@end
