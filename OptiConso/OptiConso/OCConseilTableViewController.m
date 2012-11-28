@@ -26,13 +26,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background-color.jpeg"]];
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    
+    self.waterTips = [[NSMutableArray alloc] init];
+    self.elecTips = [[NSMutableArray alloc] init];
+    self.gazTips = [[NSMutableArray alloc] init];
+    
+    /*
     OCTip *tip1 = [[OCTip alloc] initWithType:OC_WATER_TIP name:@"Boire de l'eau" description:@"Il faut boire de l'eau sinon on meurt" rank:4];
     OCTip *tip2 = [[OCTip alloc] initWithType:OC_ELEC_TIP name:@"Les doigts dans la prise" description:@"Pas les doigts dans la prise sinon on meurt" rank:2];
     OCTip *tip3 = [[OCTip alloc] initWithType:OC_GAZ_TIP name:@"Respirer le gaz" description:@"Il ne faut pas respirer le gaz sinon on meurt" rank:0];
     
-    self.waterTips = [[NSMutableArray alloc] initWithObjects:tip1, nil];
-    self.elecTips = [[NSMutableArray alloc] initWithObjects:tip2, nil];
-    self.gazTips = [[NSMutableArray alloc] initWithObjects:tip3, nil];
+    [self.waterTips addObject:tip1];
+    [self.elecTips addObject:tip2];
+    [self.gazTips addObject:tip3];
+    */
     
     self.TCS = [[OCTipsService alloc] initWithDelegate:self];
     [self.TCS launchConnection];
@@ -63,15 +73,15 @@
     // Return the number of rows in the section.
     switch (section) {
         case 0:
-            return [self.waterTips count];
+            return [self.waterTips count] + 1;
             break;
             
         case 1:
-            return [self.elecTips count];
+            return [self.elecTips count] + 1;
             break;
             
         case 2:
-            return [self.gazTips count];
+            return [self.gazTips count] + 1;
             break;
             
         default:
@@ -80,48 +90,91 @@
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0)
+        return 22.0;
+    else
+        return 60.0;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"TipCell";
-    OCTipCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (indexPath.row == 0) {
+        static NSString *CellIdentifier = @"TipSeparatorCell";
+        OCTipSeparatorCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        if (cell == nil) {
+            cell = [[OCTipSeparatorCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
+        
+        switch (indexPath.section) {
+            case 0:
+                cell.contentView.backgroundColor = [UIColor colorWithRed:0.5 green:0.66 blue:0.88 alpha:1.0];
+                cell.titleLabel.textColor = [UIColor colorWithRed:0.0 green:0.2 blue:0.6 alpha:1.0];
+                cell.titleLabel.text = @"Eau";
+                break;
+                
+            case 1:
+                cell.contentView.backgroundColor = [UIColor colorWithRed:0.9 green:0.85 blue:0.1 alpha:1.0];
+                cell.titleLabel.textColor = [UIColor colorWithRed:0.3 green:0.3 blue:0.0 alpha:1.0];
+                cell.titleLabel.text = @"Electricite";
+                break;
+                
+            case 2:
+                cell.contentView.backgroundColor = [UIColor colorWithRed:0.25 green:0.67 blue:0.27 alpha:1.0];
+                cell.titleLabel.textColor = [UIColor colorWithRed:0.0 green:0.3 blue:0.0 alpha:1.0];
+                cell.titleLabel.text = @"Gaz";
+                break;
+                
+            default:
+                break;
+        }
+        
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        return cell;
+    } else {
+        static NSString *CellIdentifier = @"TipCell";
+        OCTipCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    if (cell == nil) {
-        cell = [[OCTipCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
+        if (cell == nil) {
+            cell = [[OCTipCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
     
-    OCTip *currentTip = nil;
-    switch (indexPath.section) {
-        case 0:
-            currentTip = [self.waterTips objectAtIndex:[indexPath row]];
-            break;
+        OCTip *currentTip = nil;
+        switch (indexPath.section) {
+            case 0:
+                currentTip = [self.waterTips objectAtIndex:([indexPath row] - 1)];
+                break;
             
-        case 1:
-            currentTip = [self.elecTips objectAtIndex:[indexPath row]];
-            break;
+            case 1:
+                currentTip = [self.elecTips objectAtIndex:([indexPath row] - 1)];
+                break;
             
-        case 2:
-            currentTip = [self.gazTips objectAtIndex:[indexPath row]];
-            break;
+            case 2:
+                currentTip = [self.gazTips objectAtIndex:([indexPath row] - 1)];
+                break;
             
-        default:
-            break;
-    }
+            default:
+                break;
+        }
 
-    cell.titleLabel.text = currentTip.tipName;
-    cell.descLabel.text = currentTip.tipDescription;
+        cell.titleLabel.text = currentTip.tipName;
+        cell.descLabel.text = currentTip.tipDescription;
     
-    if (currentTip.tipRank > 0)
-        cell.star1.image = [UIImage imageNamed:@"star_yellow.png"];
-    if (currentTip.tipRank > 1)
-        cell.star2.image = [UIImage imageNamed:@"star_yellow.png"];
-    if (currentTip.tipRank > 2)
-        cell.star3.image = [UIImage imageNamed:@"star_yellow.png"];
-    if (currentTip.tipRank > 3)
-        cell.star4.image = [UIImage imageNamed:@"star_yellow.png"];
-    if (currentTip.tipRank > 4)
-        cell.star5.image = [UIImage imageNamed:@"star_yellow.png"];
+        if (currentTip.tipRank > 0)
+            cell.star1.image = [UIImage imageNamed:@"star_yellow.png"];
+        if (currentTip.tipRank > 1)
+            cell.star2.image = [UIImage imageNamed:@"star_yellow.png"];
+        if (currentTip.tipRank > 2)
+            cell.star3.image = [UIImage imageNamed:@"star_yellow.png"];
+        if (currentTip.tipRank > 3)
+            cell.star4.image = [UIImage imageNamed:@"star_yellow.png"];
+        if (currentTip.tipRank > 4)
+            cell.star5.image = [UIImage imageNamed:@"star_yellow.png"];
     
-    return cell;
+        return cell;
+    }
 }
 
 /*
@@ -167,13 +220,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - TipsConnectionService delegate

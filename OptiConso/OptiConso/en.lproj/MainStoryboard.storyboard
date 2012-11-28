@@ -19,7 +19,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="GCL-Mq-Pjv" kind="relationship" relationship="viewControllers" id="BgA-17-neX"/>
-                        <segue destination="aDI-4x-1W7" kind="relationship" relationship="viewControllers" id="9V2-6c-pPu"/>
                         <segue destination="MND-6l-R90" kind="relationship" relationship="viewControllers" id="iKT-nS-Stv"/>
                     </connections>
                 </tabBarController>
@@ -103,33 +102,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="693" y="-1247"/>
-        </scene>
-        <!--Table View Controller - Messagerie-->
-        <scene sceneID="eli-wY-e8f">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Jp-bJ-bTL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="xU6-Cz-WVI" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="fue-52-l6R">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MessageCell" id="2sA-Hm-lch">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </tableViewCell>
-                        </prototypes>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Messagerie" id="Rzm-pJ-KNj"/>
-                </tableViewController>
-            </objects>
-            <point key="canvasLocation" x="1227" y="180"/>
+            <point key="canvasLocation" x="1225" y="-875"/>
         </scene>
         <!--Conseil Table View Controller - Conseil-->
         <scene sceneID="6GW-KA-Oi8">
@@ -139,7 +112,8 @@
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="CUk-H9-Yfk">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TipCell" rowHeight="60" id="sRW-YR-DLP" customClass="OCTipCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="60"/>
@@ -148,19 +122,14 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Egy-fK-Mrh">
-                                            <rect key="frame" x="20" y="5" width="131" height="25"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="APU-IE-w6S">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" id="APU-IE-w6S">
                                             <rect key="frame" x="20" y="32" width="280" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <size key="shadowOffset" width="1" height="1"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="star_grey.png" id="nav-u0-bmc">
                                             <rect key="frame" x="283" y="9" width="17" height="17"/>
@@ -182,6 +151,15 @@
                                             <rect key="frame" x="205" y="9" width="17" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" id="riv-ap-9gU">
+                                            <rect key="frame" x="20" y="7" width="177" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <size key="shadowOffset" width="1" height="2"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
@@ -192,7 +170,30 @@
                                     <outlet property="star3" destination="rtL-Oy-7hg" id="Rca-1a-GaG"/>
                                     <outlet property="star4" destination="OB6-nZ-gJk" id="4xD-YY-27Y"/>
                                     <outlet property="star5" destination="N4L-jg-KDg" id="43h-Jp-sc5"/>
-                                    <outlet property="titleLabel" destination="Egy-fK-Mrh" id="HiJ-oa-uhZ"/>
+                                    <outlet property="titleLabel" destination="riv-ap-9gU" id="FhI-ep-RBU"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TipSeparatorCell" rowHeight="22" id="w2M-or-HrK" customClass="OCTipSeparatorCell">
+                                <rect key="frame" x="0.0" y="82" width="320" height="22"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="21"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" id="1P5-Od-95t">
+                                            <rect key="frame" x="20" y="0.0" width="280" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="shadowOffset" width="1" height="1"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="titleLabel" destination="1P5-Od-95t" id="MiS-xh-RYE"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -200,7 +201,7 @@
                     <navigationItem key="navigationItem" title="Conseil" id="T8v-yo-t4Y"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="1225" y="946"/>
+            <point key="canvasLocation" x="1225" y="484"/>
         </scene>
         <!--Navigation Controller - Conseil-->
         <scene sceneID="2zL-EY-bWd">
@@ -216,23 +217,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="693" y="946"/>
-        </scene>
-        <!--Navigation Controller - Messagerie-->
-        <scene sceneID="yur-AA-g2o">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ysg-zi-JNK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController definesPresentationContext="YES" id="aDI-4x-1W7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Messagerie" image="18-envelope.png" id="04t-Fv-hNC"/>
-                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="pSM-BA-kOV">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="xU6-Cz-WVI" kind="relationship" relationship="rootViewController" id="0HO-De-9MI"/>
-                    </connections>
-                </navigationController>
-            </objects>
-            <point key="canvasLocation" x="693" y="180"/>
+            <point key="canvasLocation" x="693" y="484"/>
         </scene>
         <!--Navigation Controller - Mes Consos-->
         <scene sceneID="FUF-M2-xC0">
@@ -248,7 +233,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="693" y="-615"/>
+            <point key="canvasLocation" x="691" y="-213"/>
         </scene>
         <!--Mes Consos View Controller - Mes Consos-->
         <scene sceneID="2hw-fA-tVg">
@@ -304,7 +289,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1227" y="-615"/>
+            <point key="canvasLocation" x="1225" y="-213"/>
         </scene>
         <!--Table View Controller - Se Comparer-->
         <scene sceneID="4FC-Nc-pa9">
@@ -334,7 +319,7 @@
                     <navigationItem key="navigationItem" title="Se Comparer" id="Dcw-Io-9S0"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="1778" y="-615"/>
+            <point key="canvasLocation" x="1816" y="85"/>
         </scene>
         <!--View Controller - Modifier-->
         <scene sceneID="jjL-Gp-FBg">
@@ -349,11 +334,10 @@
                     <navigationItem key="navigationItem" title="Modifier" id="9xF-aR-c9R"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1778" y="-1247"/>
+            <point key="canvasLocation" x="1816" y="-547"/>
         </scene>
     </scenes>
     <resources>
-        <image name="18-envelope.png" width="24" height="16"/>
         <image name="61-brightness.png" width="20" height="20"/>
         <image name="email_input.png" width="244" height="30"/>
         <image name="graph.png" width="30" height="13"/>
@@ -388,6 +372,12 @@
                 <relationship kind="outlet" name="star3" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="star4" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="star5" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="OCTipSeparatorCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OCTipSeparatorCell.h"/>
+            <relationships>
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
             </relationships>
         </class>

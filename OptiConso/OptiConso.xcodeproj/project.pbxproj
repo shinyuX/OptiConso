@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1BEA63C11665721D0058AA1C /* OCTipSeparatorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BEA63C01665721D0058AA1C /* OCTipSeparatorCell.m */; };
 		9707334315FE26AE00FD18BB /* graph.png in Resources */ = {isa = PBXBuildFile; fileRef = 9707334215FE26AE00FD18BB /* graph.png */; };
 		9707334815FE28FA00FD18BB /* 18-envelope.png in Resources */ = {isa = PBXBuildFile; fileRef = 9707334515FE28FA00FD18BB /* 18-envelope.png */; };
 		9707334915FE28FA00FD18BB /* 61-brightness.png in Resources */ = {isa = PBXBuildFile; fileRef = 9707334615FE28FA00FD18BB /* 61-brightness.png */; };
@@ -51,6 +52,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1BEA63BF1665721D0058AA1C /* OCTipSeparatorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCTipSeparatorCell.h; sourceTree = "<group>"; };
+		1BEA63C01665721D0058AA1C /* OCTipSeparatorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTipSeparatorCell.m; sourceTree = "<group>"; };
 		9707334215FE26AE00FD18BB /* graph.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graph.png; sourceTree = "<group>"; };
 		9707334515FE28FA00FD18BB /* 18-envelope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "18-envelope.png"; sourceTree = "<group>"; };
 		9707334615FE28FA00FD18BB /* 61-brightness.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "61-brightness.png"; sourceTree = "<group>"; };
@@ -230,7 +233,6 @@
 			children = (
 				C71CD3FE1652648A001B5688 /* Login */,
 				97928DA8162C89600081C936 /* MesConsos */,
-				97928DA9162C89720081C936 /* Messagerie */,
 				97928DAA162C89800081C936 /* Conseil */,
 			);
 			name = ViewControllers;
@@ -245,13 +247,6 @@
 			name = MesConsos;
 			sourceTree = "<group>";
 		};
-		97928DA9162C89720081C936 /* Messagerie */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Messagerie;
-			sourceTree = "<group>";
-		};
 		97928DAA162C89800081C936 /* Conseil */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,6 +254,8 @@
 				97928DAC162C89E60081C936 /* OCConseilTableViewController.m */,
 				C71CD41E1652B452001B5688 /* OCTipCell.h */,
 				C71CD41F1652B452001B5688 /* OCTipCell.m */,
+				1BEA63BF1665721D0058AA1C /* OCTipSeparatorCell.h */,
+				1BEA63C01665721D0058AA1C /* OCTipSeparatorCell.m */,
 			);
 			name = Conseil;
 			sourceTree = "<group>";
@@ -446,6 +443,7 @@
 				C71CD401165264C1001B5688 /* OCLoginViewController.m in Sources */,
 				C71CD41516529A25001B5688 /* OCTipsService.m in Sources */,
 				C71CD4201652B452001B5688 /* OCTipCell.m in Sources */,
+				1BEA63C11665721D0058AA1C /* OCTipSeparatorCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

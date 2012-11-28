@@ -25,6 +25,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background-color.jpeg"]];
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+
     self.connected = NO;
 }
 

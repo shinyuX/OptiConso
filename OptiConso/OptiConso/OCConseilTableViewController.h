@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "OCTipsService.h"
 #import "OCTipCell.h"
+#import "OCTipSeparatorCell.h"
 
 @interface OCConseilTableViewController : UITableViewController <TCSDelegate, UIAlertViewDelegate>
 
