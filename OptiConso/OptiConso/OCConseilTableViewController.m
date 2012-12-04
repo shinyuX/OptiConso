@@ -161,6 +161,7 @@
 
         cell.titleLabel.text = currentTip.tipName;
         cell.descLabel.text = currentTip.tipDescription;
+        [cell setSelectionStyle:UITableViewCellSelectionStyleGray];
     
         if (currentTip.tipRank > 0)
             cell.star1.image = [UIImage imageNamed:@"star_yellow.png"];
