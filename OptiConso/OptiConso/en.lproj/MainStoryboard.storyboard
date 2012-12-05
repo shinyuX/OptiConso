@@ -249,34 +249,34 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jfP-MZ-6ZH">
-                                <rect key="frame" x="20" y="310" width="129" height="37"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jfP-MZ-6ZH">
+                                <rect key="frame" x="20" y="315" width="128" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Modifier">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Modifier" backgroundImage="button@2x.png">
+                                    <color key="titleColor" red="0.59128529982106559" green="0.82958713137816698" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="bSl-XW-MRT" kind="push" id="pzC-Lx-YsE"/>
+                                    <segue destination="bSl-XW-MRT" kind="push" identifier="ModifierSegue" id="pzC-Lx-YsE"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tYJ-ca-huy">
-                                <rect key="frame" x="171" y="310" width="129" height="37"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tYJ-ca-huy">
+                                <rect key="frame" x="172" y="315" width="128" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Se Comparer">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Me Comparer" backgroundImage="button@2x.png">
+                                    <color key="titleColor" red="0.5912852998" green="0.82958713139999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="rdo-Ig-rgH" kind="push" id="Svy-7o-rHu"/>
+                                    <segue destination="rdo-Ig-rgH" kind="push" identifier="ComparerSegue" id="Svy-7o-rHu"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -321,17 +321,93 @@
             </objects>
             <point key="canvasLocation" x="1816" y="85"/>
         </scene>
-        <!--View Controller - Modifier-->
+        <!--Modifier View Controller - Modifier-->
         <scene sceneID="jjL-Gp-FBg">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KcF-eJ-nge" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="bSl-XW-MRT" sceneMemberID="viewController">
+                <viewController id="bSl-XW-MRT" customClass="OCModifierViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pLu-Ab-DOw">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="30" id="cgZ-ul-AY3">
+                                <rect key="frame" x="6" y="105" width="308" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <date key="date" timeIntervalSinceReferenceDate="376362311.30097502">
+                                    <!--2012-12-05 01:05:11 +0000-->
+                                </date>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="-978267600">
+                                    <!--1970-01-01 11:00:00 +0000-->
+                                </date>
+                                <locale key="locale" localeIdentifier="fr"/>
+                                <timeZone key="timeZone" name="America/Los_Angeles">
+                                    <mutableData key="data">
+VFppZgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAC5AAAABAAAABCepkign7sVkKCGKqChmveQ
+y4kaoNIj9HDSYSYQ1v50INiArZDa/tGg28CQENzes6DdqayQ3r6VoN+JjpDgnneg4WlwkOJ+WaDjSVKQ
+5F47oOUpNJDmR1gg5xJREOgnOiDo8jMQ6gccIOrSFRDr5v4g7LH3EO3G4CDukdkQ76/8oPBxuxDxj96g
+8n/BkPNvwKD0X6OQ9U+ioPY/hZD3L4Sg+CiiEPkPZqD6CIQQ+viDIPvoZhD82GUg/chIEP64RyD/qCoQ
+AJgpIAGIDBACeAsgA3EokARhJ6AFUQqQBkEJoAcw7JAHjUOgCRDOkAmtvyAK8LCQC+CvoAzZzRANwJGg
+DrmvEA+priAQmZEQEYmQIBJ5cxATaXIgFFlVEBVJVCAWOTcQFyk2IBgiU5AZCRggGgI1kBryNKAb4heQ
+HNIWoB3B+ZAesfigH6HbkCB2KyAhgb2QIlYNICNq2hAkNe8gJUq8ECYV0SAnKp4QJ/7toCkKgBAp3s+g
+KupiECu+saAs036QLZ6ToC6zYJAvfnWgMJNCkDFnkiAycySQM0d0IDRTBpA1J1YgNjLokDcHOCA4HAUQ
+OOcaIDn75xA6xvwgO9vJEDywGKA9u6sQPo/6oD+bjRBAb9ygQYSpkEJPvqBDZIuQRC+goEVEbZBF89Mg
+Ry2KEEfTtSBJDWwQSbOXIErtThBLnLOgTNZqkE18laBOtkyQT1x3oFCWLpBRPFmgUnYQkFMcO6BUVfKQ
+VPwdoFY11JBW5TogWB7xEFjFHCBZ/tMQWqT+IFvetRBchOAgXb6XEF5kwiBfnnkQYE3eoGGHlZBiLcCg
+Y2d3kGQNoqBlR1mQZe2EoGcnO5BnzWagaQcdkGmtSKBq5v+Qa5ZlIGzQHBBtdkcgbq/+EG9WKSBwj+AQ
+cTYLIHJvwhBzFe0gdE+kEHT/CaB2OMCQdt7roHgYopB4vs2gefiEkHqer6B72GaQfH6RoH24SJB+XnOg
+f5gqkAABAAECAwEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
+AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
+AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
+AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
+</mutableData>
+                                </timeZone>
+                            </datePicker>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="email_input.png" id="qnN-yN-kOV">
+                                <rect key="frame" x="20" y="11" width="280" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nouvelle valeur" minimumFontSize="17" id="31u-xi-nyQ">
+                                <rect key="frame" x="23" y="14.5" width="277" height="25.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bezeled" selectedSegmentIndex="0" id="Lfk-Qt-9bx">
+                                <rect key="frame" x="74" y="48" width="173" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="" image="eau.png"/>
+                                    <segment title="" image="elec.png"/>
+                                    <segment title="" image="gaz.png"/>
+                                </segments>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="AYp-Xv-Aty">
+                                <rect key="frame" x="96" y="329" width="128" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Valider" backgroundImage="button@2x.png">
+                                    <color key="titleColor" red="0.5912852998" green="0.82958713139999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="validateButton:" destination="bSl-XW-MRT" eventType="touchUpInside" id="845-y7-wUB"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Modifier" id="9xF-aR-c9R"/>
+                    <connections>
+                        <outlet property="datePicker" destination="cgZ-ul-AY3" id="WYB-2Y-Y3d"/>
+                        <outlet property="energySC" destination="Lfk-Qt-9bx" id="jhk-Ba-1D7"/>
+                        <outlet property="valueField" destination="31u-xi-nyQ" id="7AU-Ph-b3M"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1816" y="-547"/>
@@ -339,7 +415,11 @@
     </scenes>
     <resources>
         <image name="61-brightness.png" width="20" height="20"/>
+        <image name="button@2x.png" width="256" height="64"/>
+        <image name="eau.png" width="42" height="42"/>
+        <image name="elec.png" width="42" height="42"/>
         <image name="email_input.png" width="244" height="30"/>
+        <image name="gaz.png" width="42" height="42"/>
         <image name="graph.png" width="30" height="13"/>
         <image name="logo.png" width="306" height="253"/>
         <image name="star_grey.png" width="22" height="22"/>
@@ -361,6 +441,15 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/OCMesConsosViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="graphView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="OCModifierViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OCModifierViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="validateButton:"/>
+                <relationship kind="outlet" name="datePicker" candidateClass="UIDatePicker"/>
+                <relationship kind="outlet" name="energySC" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="valueField" candidateClass="UITextField"/>
             </relationships>
         </class>
         <class className="OCTipCell" superclassName="UITableViewCell">

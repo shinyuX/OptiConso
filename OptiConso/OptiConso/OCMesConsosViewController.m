@@ -58,8 +58,16 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    OCLoginViewController *login = segue.destinationViewController; 
-    login.delegate = self;
+    if ([segue.identifier isEqualToString:@"LoginSegue"])
+    {
+        OCLoginViewController *login = segue.destinationViewController; 
+        login.delegate = self;
+    }
+    else if ([segue.identifier isEqualToString:@"ModifierSegue"])
+    {
+        OCModifierViewController *modifier = segue.destinationViewController; 
+        modifier.delegate = self;
+    }
 }
 
 #pragma mark - LoginViewController Delegate
@@ -68,6 +76,13 @@
 {
     [self dismissModalViewControllerAnimated:YES];
     self.connected = YES;
+}
+
+#pragma mark - ModifierViewController Delegate
+
+- (void)ModifierViewDidAddValue:(NSInteger)value forEnergy:(NSInteger)energy date:(NSString *)date
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1BB81929166ED46D00B8C138 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BB81927166ED46D00B8C138 /* button.png */; };
+		1BB8192A166ED46D00B8C138 /* button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BB81928166ED46D00B8C138 /* button@2x.png */; };
+		1BB8192D166ED5DF00B8C138 /* OCModifierViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB8192C166ED5DF00B8C138 /* OCModifierViewController.m */; };
+		1BB81934166EDC9400B8C138 /* elec.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BB8192E166EDC9400B8C138 /* elec.png */; };
+		1BB81935166EDC9400B8C138 /* elec@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BB8192F166EDC9400B8C138 /* elec@2x.png */; };
+		1BB81936166EDC9400B8C138 /* eau.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BB81930166EDC9400B8C138 /* eau.png */; };
+		1BB81937166EDC9400B8C138 /* eau@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BB81931166EDC9400B8C138 /* eau@2x.png */; };
+		1BB81938166EDC9400B8C138 /* gaz@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BB81932166EDC9400B8C138 /* gaz@2x.png */; };
+		1BB81939166EDC9400B8C138 /* gaz.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BB81933166EDC9400B8C138 /* gaz.png */; };
+		1BB8193D166EED6000B8C138 /* OCAddValueService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB8193C166EED6000B8C138 /* OCAddValueService.m */; };
 		1BEA63C11665721D0058AA1C /* OCTipSeparatorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BEA63C01665721D0058AA1C /* OCTipSeparatorCell.m */; };
 		9707334315FE26AE00FD18BB /* graph.png in Resources */ = {isa = PBXBuildFile; fileRef = 9707334215FE26AE00FD18BB /* graph.png */; };
 		9707334815FE28FA00FD18BB /* 18-envelope.png in Resources */ = {isa = PBXBuildFile; fileRef = 9707334515FE28FA00FD18BB /* 18-envelope.png */; };
@@ -52,6 +62,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1BB81927166ED46D00B8C138 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
+		1BB81928166ED46D00B8C138 /* button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button@2x.png"; sourceTree = "<group>"; };
+		1BB8192B166ED5DF00B8C138 /* OCModifierViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCModifierViewController.h; sourceTree = "<group>"; };
+		1BB8192C166ED5DF00B8C138 /* OCModifierViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCModifierViewController.m; sourceTree = "<group>"; };
+		1BB8192E166EDC9400B8C138 /* elec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = elec.png; sourceTree = "<group>"; };
+		1BB8192F166EDC9400B8C138 /* elec@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "elec@2x.png"; sourceTree = "<group>"; };
+		1BB81930166EDC9400B8C138 /* eau.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eau.png; sourceTree = "<group>"; };
+		1BB81931166EDC9400B8C138 /* eau@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eau@2x.png"; sourceTree = "<group>"; };
+		1BB81932166EDC9400B8C138 /* gaz@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gaz@2x.png"; sourceTree = "<group>"; };
+		1BB81933166EDC9400B8C138 /* gaz.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gaz.png; sourceTree = "<group>"; };
+		1BB8193B166EED6000B8C138 /* OCAddValueService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCAddValueService.h; sourceTree = "<group>"; };
+		1BB8193C166EED6000B8C138 /* OCAddValueService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCAddValueService.m; sourceTree = "<group>"; };
 		1BEA63BF1665721D0058AA1C /* OCTipSeparatorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCTipSeparatorCell.h; sourceTree = "<group>"; };
 		1BEA63C01665721D0058AA1C /* OCTipSeparatorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTipSeparatorCell.m; sourceTree = "<group>"; };
 		9707334215FE26AE00FD18BB /* graph.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graph.png; sourceTree = "<group>"; };
@@ -135,9 +157,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1BB8193A166EECE700B8C138 /* AddValue */ = {
+			isa = PBXGroup;
+			children = (
+				1BB8193B166EED6000B8C138 /* OCAddValueService.h */,
+				1BB8193C166EED6000B8C138 /* OCAddValueService.m */,
+			);
+			name = AddValue;
+			sourceTree = "<group>";
+		};
 		9707333C15FE227600FD18BB /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1BB8192E166EDC9400B8C138 /* elec.png */,
+				1BB8192F166EDC9400B8C138 /* elec@2x.png */,
+				1BB81930166EDC9400B8C138 /* eau.png */,
+				1BB81931166EDC9400B8C138 /* eau@2x.png */,
+				1BB81932166EDC9400B8C138 /* gaz@2x.png */,
+				1BB81933166EDC9400B8C138 /* gaz.png */,
+				1BB81927166ED46D00B8C138 /* button.png */,
+				1BB81928166ED46D00B8C138 /* button@2x.png */,
 				C71CD4161652B1AE001B5688 /* star_grey.png */,
 				C71CD4171652B1AE001B5688 /* star_grey@2x.png */,
 				C71CD4181652B1AE001B5688 /* star_yellow.png */,
@@ -222,6 +261,7 @@
 		97928DA1162C688E0081C936 /* ConnectionServices */ = {
 			isa = PBXGroup;
 			children = (
+				1BB8193A166EECE700B8C138 /* AddValue */,
 				C71CD41216529938001B5688 /* Tips */,
 				C71CD3F616525DF1001B5688 /* Authentication */,
 			);
@@ -243,6 +283,8 @@
 			children = (
 				C71CD3FB1652647F001B5688 /* OCMesConsosViewController.h */,
 				C71CD3FC1652647F001B5688 /* OCMesConsosViewController.m */,
+				1BB8192B166ED5DF00B8C138 /* OCModifierViewController.h */,
+				1BB8192C166ED5DF00B8C138 /* OCModifierViewController.m */,
 			);
 			name = MesConsos;
 			sourceTree = "<group>";
@@ -412,6 +454,14 @@
 				C71CD41B1652B1AF001B5688 /* star_grey@2x.png in Resources */,
 				C71CD41C1652B1AF001B5688 /* star_yellow.png in Resources */,
 				C71CD41D1652B1AF001B5688 /* star_yellow@2x.png in Resources */,
+				1BB81929166ED46D00B8C138 /* button.png in Resources */,
+				1BB8192A166ED46D00B8C138 /* button@2x.png in Resources */,
+				1BB81934166EDC9400B8C138 /* elec.png in Resources */,
+				1BB81935166EDC9400B8C138 /* elec@2x.png in Resources */,
+				1BB81936166EDC9400B8C138 /* eau.png in Resources */,
+				1BB81937166EDC9400B8C138 /* eau@2x.png in Resources */,
+				1BB81938166EDC9400B8C138 /* gaz@2x.png in Resources */,
+				1BB81939166EDC9400B8C138 /* gaz.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +494,8 @@
 				C71CD41516529A25001B5688 /* OCTipsService.m in Sources */,
 				C71CD4201652B452001B5688 /* OCTipCell.m in Sources */,
 				1BEA63C11665721D0058AA1C /* OCTipSeparatorCell.m in Sources */,
+				1BB8192D166ED5DF00B8C138 /* OCModifierViewController.m in Sources */,
+				1BB8193D166EED6000B8C138 /* OCAddValueService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

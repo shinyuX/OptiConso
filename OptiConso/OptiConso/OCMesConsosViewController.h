@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "OCLoginViewController.h"
+#import "OCModifierViewController.h"
 
-@interface OCMesConsosViewController : UIViewController <LoginViewDelegate>
+@interface OCMesConsosViewController : UIViewController <LoginViewDelegate, ModifierViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIWebView *graphView;
 @property (assign, nonatomic) BOOL connected;
 
 - (void)LoginViewDidValidateAuthentication;
+- (void)ModifierViewDidAddValue:(NSInteger)value forEnergy:(NSInteger)energy date:(NSString *)date;
 
 @end
