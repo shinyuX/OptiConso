@@ -14,6 +14,7 @@
 @synthesize energySC;
 @synthesize datePicker;
 @synthesize valueField;
+@synthesize AVCS;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,6 +30,7 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background-color.jpeg"]];
+    self.AVCS = [[OCAddValueService alloc] initWithDelegate:self];
 //    self.energySC.segmentedControlStyle = UISegmentedControlStyleBar;
 }
 
@@ -72,8 +74,23 @@
         NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"yyyy-MM-dd"];
         NSString *dateString = [dateFormatter stringFromDate:[self.datePicker date]];
-        [self.delegate ModifierViewDidAddValue:[[self.valueField text] integerValue] forEnergy:[self.energySC selectedSegmentIndex] date:dateString];
+        [self.AVCS launchConnectionForEnergy:self.energySC.selectedSegmentIndex date:dateString value:[self.valueField.text intValue]];
     }
+}
+
+#pragma mark - UIAlertView Delegate
+
+- (void)AVCSDidFinishParsing
+{
+    [self.delegate ModifierViewDidAddValue];
+}
+
+- (void)AVCSDidEndWithError
+{
+    NSString *title = NSLocalizedString(@"Echec de l'ajout de valeur.", @"");
+    NSString *message = NSLocalizedString(@"L'ajout d'une nouvelle valeur de consommation a echoue. Veuillez verifier votre connexion internet et reessayer ulterieurement.", @"");
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
 }
 
 #pragma mark - UIAlertView Delegate

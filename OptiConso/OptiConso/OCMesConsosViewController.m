@@ -39,7 +39,10 @@
         [self performSegueWithIdentifier:@"LoginSegue" sender:self];
     else
     {
-        NSURL *url = [NSURL URLWithString:@"http://opticonso.fr/api/v1/graph/graph?auth_token=zMxD5d4AzegcWuKLfxYD"];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSString *token = [defaults objectForKey:@"kToken"];
+        NSString *urlString = [NSString stringWithFormat:@"http://opticonso.fr/api/v1/graph/graph?auth_token=%@&type=%@", token, @"eau"];
+        NSURL *url = [NSURL URLWithString:urlString];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         [self.graphView loadRequest:request];
     }
@@ -56,6 +59,13 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (IBAction)energyButton:(id)sender
+{
+    UIActionSheet *energy = [[UIActionSheet alloc] initWithTitle:@"Choisir une energie" delegate:self cancelButtonTitle:@"Annuler" destructiveButtonTitle:nil otherButtonTitles:@"Eau", @"Electricte", @"Gaz", nil];
+    energy.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+    [energy showFromTabBar:self.tabBarController.tabBar];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"LoginSegue"])
@@ -67,6 +77,11 @@
     {
         OCModifierViewController *modifier = segue.destinationViewController; 
         modifier.delegate = self;
+    }
+    else if ([segue.identifier isEqualToString:@"ChangerSegue"])
+    {
+        OCChangerHabitatViewController *changer = segue.destinationViewController; 
+        changer.delegate = self;
     }
 }
 
@@ -80,9 +95,47 @@
 
 #pragma mark - ModifierViewController Delegate
 
-- (void)ModifierViewDidAddValue:(NSInteger)value forEnergy:(NSInteger)energy date:(NSString *)date
+- (void)ModifierViewDidAddValue
 {
     [self.navigationController popViewControllerAnimated:YES];
+    [self.graphView reload];
+}
+
+#pragma mark - ChangerViewController Delegate
+
+- (void)ChangerViewDidPickHabitat:(OCHabitat *)habitat
+{
+    [self.navigationController popViewControllerAnimated:YES];
+    [self.graphView reload];
+}
+
+#pragma mark - UIActionSheet Delegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *newEnergy = @"";
+    switch (buttonIndex) {
+        case 0:
+            newEnergy = @"eau";
+            break;
+        case 1:
+            newEnergy = @"elec";
+            break;
+        case 2:
+            newEnergy = @"gaz";
+            break;
+            
+        default:
+            return;
+            break;
+    }
+ 
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *token = [defaults objectForKey:@"kToken"];
+    NSString *urlString = [NSString stringWithFormat:@"http://opticonso.fr/api/v1/graph/graph?auth_token=%@&type=%@", token, newEnergy];
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [self.graphView loadRequest:request];
 }
 
 @end

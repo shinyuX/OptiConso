@@ -9,13 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "OCLoginViewController.h"
 #import "OCModifierViewController.h"
+#import "OCChangerHabitatViewController.h"
 
-@interface OCMesConsosViewController : UIViewController <LoginViewDelegate, ModifierViewDelegate>
+@interface OCMesConsosViewController : UIViewController <LoginViewDelegate, ModifierViewDelegate, ChangerViewDelegate, UIActionSheetDelegate>
 
 @property (strong, nonatomic) IBOutlet UIWebView *graphView;
 @property (assign, nonatomic) BOOL connected;
 
 - (void)LoginViewDidValidateAuthentication;
-- (void)ModifierViewDidAddValue:(NSInteger)value forEnergy:(NSInteger)energy date:(NSString *)date;
+- (void)ModifierViewDidAddValue;
+- (void)ChangerViewDidPickHabitat:(OCHabitat *)habitat;
+
+- (IBAction)energyButton:(id)sender;
 
 @end

@@ -7,18 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OCAddValueService.h"
 
 @protocol ModifierViewDelegate <NSObject>
-- (void)ModifierViewDidAddValue:(NSInteger)value forEnergy:(NSInteger)energy date:(NSString *)date;
+- (void)ModifierViewDidAddValue;
 @end
 
-@interface OCModifierViewController : UIViewController <UIAlertViewDelegate>
+@interface OCModifierViewController : UIViewController <UIAlertViewDelegate, AVCSDelegate>
 
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (strong, nonatomic) IBOutlet UITextField *valueField;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *energySC;
+@property (strong, nonatomic) OCAddValueService *AVCS;
 @property (assign, nonatomic) id<ModifierViewDelegate> delegate;
 
 - (IBAction)validateButton:(id)sender;
+
+- (void)AVCSDidFinishParsing;
+- (void)AVCSDidEndWithError;
 
 @end

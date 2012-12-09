@@ -10,7 +10,7 @@
 #import "SBJson.h"
 
 @protocol AVCSDelegate <NSObject>
-- (void)AVCSDidFinishParsing:(NSMutableArray *)results;
+- (void)AVCSDidFinishParsing;
 - (void)AVCSDidEndWithError;
 @end
 
@@ -22,9 +22,8 @@
 @property (strong, nonatomic) NSURLConnection *urlConnection;
 @property (assign, nonatomic) id<AVCSDelegate> delegate;
 @property (strong, nonatomic) NSMutableData *data;
-@property (strong, nonatomic) NSMutableArray *results;
 
 - (id)initWithDelegate:(id<AVCSDelegate>)delegate;
-- (void)launchConnection;
+- (void)launchConnectionForEnergy:(int)theenergy date:(NSString *)thedate value:(int)thevalue;
 
 @end

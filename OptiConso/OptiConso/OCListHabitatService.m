@@ -1,21 +1,22 @@
 //
-//  OCAddValueService.m
+//  OCListHabitatService.m
 //  OptiConso
 //
-//  Created by Thomas COLLE on 12/5/12.
+//  Created by Thomas COLLE on 12/9/12.
 //  Copyright (c) 2012 Student. All rights reserved.
 //
 
-#import "OCAddValueService.h"
+#import "OCListHabitatService.h"
 
-@implementation OCAddValueService
+@implementation OCListHabitatService
 @synthesize parser;
 @synthesize adapter;
 @synthesize urlConnection;
 @synthesize delegate;
 @synthesize data;
+@synthesize results;
 
-- (id)initWithDelegate:(id<AVCSDelegate>)theDelegate
+- (id)initWithDelegate:(id<LHCSDelegate>)theDelegate
 {
     self = [super init];
     if (self)
@@ -27,25 +28,22 @@
         self.parser = [[SBJsonStreamParser alloc] init];
         self.parser.delegate = self.adapter;        
         self.parser.supportMultipleDocuments = YES;
+        self.results = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
-- (void)launchConnectionForEnergy:(int)theenergy date:(NSString *)thedate value:(int)thevalue
+- (void)launchConnection
 {
     self.data = [[NSMutableData alloc] init];
+    [self.results removeAllObjects];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *token = [defaults objectForKey:@"kToken"];
-    NSString *url = [NSString stringWithFormat:@"http://opticonso.fr/api/v1/value/add.json?auth_token=%@", token];
-    
-    NSString *bodyContent = [NSString stringWithFormat:@"type=%d&date=%@&value=%d", theenergy, thedate, thevalue];
+    NSString *url = [NSString stringWithFormat:@"http://opticonso.fr/api/v1/habitat/all.json?auth_token=%@", token];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10.0];  
     [request setHTTPShouldHandleCookies:NO];
-    [request setHTTPMethod:@"POST"];
-    [request setHTTPBody:[bodyContent dataUsingEncoding:NSUTF8StringEncoding]];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     
     self.urlConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     [self.urlConnection start];
@@ -64,7 +62,10 @@
             [connection cancel];
             if (![self.delegate isKindOfClass:[NSNull class]])
             {
-                [self.delegate AVCSDidEndWithError];
+                if (theStatusCode == 204)
+                    [self.delegate LHCSDidNotFindAny];
+                else
+                    [self.delegate LHCSDidEndWithError];
             }
         }
     }
@@ -83,7 +84,7 @@
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
     if (![self.delegate isKindOfClass:[NSNull class]])
-        [self.delegate AVCSDidEndWithError];
+        [self.delegate LHCSDidEndWithError];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
@@ -92,9 +93,9 @@
     if (![self.delegate isKindOfClass:[NSNull class]])
     {
         if (status == SBJsonStreamParserError)
-            [self.delegate AVCSDidEndWithError];
+            [self.delegate LHCSDidEndWithError];
         else
-            [self.delegate AVCSDidFinishParsing];
+            [self.delegate LHCSDidFinishParsing:self.results];
     }
 }
 
@@ -114,10 +115,24 @@
 
 - (void)parser:(SBJsonStreamParser *)parserr foundObject:(NSDictionary *)dict
 {
-    // We found a message object
-    if ([dict objectForKey:@"message"])
+    // We found a habitat array
+    if ([dict objectForKey:@"habitats"])
     {
+        [self parser:parserr foundArray:[dict objectForKey:@"habitats"]];
     }
+    
+    // We found a habitat object
+    if ([dict objectForKey:@"nom"])
+    {
+        int theId = [[dict objectForKey:@"id"] intValue];
+        int theSurface = [[dict objectForKey:@"surface"] intValue];
+        NSString *name = [dict objectForKey:@"nom"];
+        BOOL selected = [[dict objectForKey:@"selected"] intValue];
+
+        OCHabitat *habitat = [[OCHabitat alloc] initWithId:theId name:name selected:selected surface:theSurface];
+        [self.results addObject:habitat];
+    }
+    
 }
 
 @end

@@ -245,15 +245,15 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" id="8Qe-5b-CF4">
-                                <rect key="frame" x="20" y="20" width="280" height="271"/>
+                                <rect key="frame" x="14" y="13" width="293" height="263"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jfP-MZ-6ZH">
-                                <rect key="frame" x="20" y="315" width="128" height="32"/>
+                                <rect key="frame" x="14" y="324" width="143" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Modifier" backgroundImage="button@2x.png">
+                                <state key="normal" title="Ajouter une valeur" backgroundImage="button.png">
                                     <color key="titleColor" red="0.59128529982106559" green="0.82958713137816698" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -265,10 +265,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tYJ-ca-huy">
-                                <rect key="frame" x="172" y="315" width="128" height="32"/>
+                                <rect key="frame" x="164" y="324" width="143" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Me Comparer" backgroundImage="button@2x.png">
+                                <state key="normal" title="Me Comparer" backgroundImage="button.png">
                                     <color key="titleColor" red="0.5912852998" green="0.82958713139999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -277,6 +277,36 @@
                                 </state>
                                 <connections>
                                     <segue destination="rdo-Ig-rgH" kind="push" identifier="ComparerSegue" id="Svy-7o-rHu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Zlo-Wc-fER">
+                                <rect key="frame" x="164" y="284" width="143" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Changer d'energie" backgroundImage="button.png">
+                                    <color key="titleColor" red="0.5912852998" green="0.82958713139999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="energyButton:" destination="iyZ-fC-bTy" eventType="touchUpInside" id="CxG-Av-Bp1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qfw-Ao-sRM">
+                                <rect key="frame" x="14" y="284" width="143" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Changer d'habitat" backgroundImage="button.png">
+                                    <color key="titleColor" red="0.5912852998" green="0.82958713139999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="YX8-p4-h3z" kind="push" identifier="ChangerSegue" id="vge-u8-ohY"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -319,7 +349,7 @@
                     <navigationItem key="navigationItem" title="Se Comparer" id="Dcw-Io-9S0"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="1816" y="85"/>
+            <point key="canvasLocation" x="1816" y="222"/>
         </scene>
         <!--Modifier View Controller - Modifier-->
         <scene sceneID="jjL-Gp-FBg">
@@ -342,7 +372,7 @@
                                 </date>
                                 <locale key="locale" localeIdentifier="fr"/>
                                 <timeZone key="timeZone" name="America/Los_Angeles">
-                                    <mutableData key="data">
+                                    <data key="data">
 VFppZgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAC5AAAABAAAABCepkign7sVkKCGKqChmveQ
 y4kaoNIj9HDSYSYQ1v50INiArZDa/tGg28CQENzes6DdqayQ3r6VoN+JjpDgnneg4WlwkOJ+WaDjSVKQ
 5F47oOUpNJDmR1gg5xJREOgnOiDo8jMQ6gccIOrSFRDr5v4g7LH3EO3G4CDukdkQ76/8oPBxuxDxj96g
@@ -360,7 +390,7 @@ f5gqkAABAAECAwEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
-</mutableData>
+</data>
                                 </timeZone>
                             </datePicker>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="email_input.png" id="qnN-yN-kOV">
@@ -412,9 +442,57 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="1816" y="-547"/>
         </scene>
+        <!--Changer Habitat View Controller - Changer d'habitat-->
+        <scene sceneID="Tko-Z6-fAb">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lnC-pL-Mjk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="YX8-p4-h3z" customClass="OCChangerHabitatViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="6AF-1c-oT0">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HabitatCell" textLabel="yCW-Hh-jZC" detailTextLabel="dL8-Gc-Akr" style="IBUITableViewCellStyleValue1" id="ril-kx-kNF">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yCW-Hh-jZC">
+                                            <rect key="frame" x="10" y="11" width="35" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dL8-Gc-Akr">
+                                            <rect key="frame" x="266" y="11" width="44" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.2196078431372549" green="0.32941176470588235" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="YX8-p4-h3z" id="KR1-4Q-BgS"/>
+                            <outlet property="delegate" destination="YX8-p4-h3z" id="UbT-KG-yNO"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Changer d'habitat" id="ffn-iq-qsj"/>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="2186" y="-150"/>
+        </scene>
     </scenes>
     <resources>
         <image name="61-brightness.png" width="20" height="20"/>
+        <image name="button.png" width="128" height="32"/>
         <image name="button@2x.png" width="256" height="64"/>
         <image name="eau.png" width="42" height="42"/>
         <image name="elec.png" width="42" height="42"/>
@@ -426,6 +504,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="valid_login.png" width="30" height="30"/>
     </resources>
     <classes>
+        <class className="OCChangerHabitatViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OCChangerHabitatViewController.h"/>
+        </class>
         <class className="OCConseilTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/OCConseilTableViewController.h"/>
         </class>
@@ -440,6 +521,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="OCMesConsosViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/OCMesConsosViewController.h"/>
             <relationships>
+                <relationship kind="action" name="energyButton:"/>
                 <relationship kind="outlet" name="graphView" candidateClass="UIWebView"/>
             </relationships>
         </class>

@@ -1,21 +1,21 @@
 //
-//  OCAddValueService.m
+//  OCPickHabitatService.m
 //  OptiConso
 //
-//  Created by Thomas COLLE on 12/5/12.
+//  Created by Thomas COLLE on 12/9/12.
 //  Copyright (c) 2012 Student. All rights reserved.
 //
 
-#import "OCAddValueService.h"
+#import "OCPickHabitatService.h"
 
-@implementation OCAddValueService
+@implementation OCPickHabitatService
 @synthesize parser;
 @synthesize adapter;
 @synthesize urlConnection;
 @synthesize delegate;
 @synthesize data;
 
-- (id)initWithDelegate:(id<AVCSDelegate>)theDelegate
+- (id)initWithDelegate:(id<PHCSDelegate>)theDelegate
 {
     self = [super init];
     if (self)
@@ -31,15 +31,15 @@
     return self;
 }
 
-- (void)launchConnectionForEnergy:(int)theenergy date:(NSString *)thedate value:(int)thevalue
+- (void)launchConnectionForHabitat:(OCHabitat *)habitat
 {
     self.data = [[NSMutableData alloc] init];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *token = [defaults objectForKey:@"kToken"];
-    NSString *url = [NSString stringWithFormat:@"http://opticonso.fr/api/v1/value/add.json?auth_token=%@", token];
+    NSString *url = [NSString stringWithFormat:@"http://opticonso.fr/api/v1/habitat/select.json?auth_token=%@", token];
     
-    NSString *bodyContent = [NSString stringWithFormat:@"type=%d&date=%@&value=%d", theenergy, thedate, thevalue];
+    NSString *bodyContent = [NSString stringWithFormat:@"id=%d", habitat.habitatId];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10.0];  
     [request setHTTPShouldHandleCookies:NO];
@@ -63,9 +63,7 @@
         {
             [connection cancel];
             if (![self.delegate isKindOfClass:[NSNull class]])
-            {
-                [self.delegate AVCSDidEndWithError];
-            }
+                [self.delegate PHCSDidEndWithError];
         }
     }
 }
@@ -83,7 +81,7 @@
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
     if (![self.delegate isKindOfClass:[NSNull class]])
-        [self.delegate AVCSDidEndWithError];
+        [self.delegate PHCSDidEndWithError];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
@@ -92,9 +90,9 @@
     if (![self.delegate isKindOfClass:[NSNull class]])
     {
         if (status == SBJsonStreamParserError)
-            [self.delegate AVCSDidEndWithError];
+            [self.delegate PHCSDidEndWithError];
         else
-            [self.delegate AVCSDidFinishParsing];
+            [self.delegate PHCSDidFinishParsing];
     }
 }
 

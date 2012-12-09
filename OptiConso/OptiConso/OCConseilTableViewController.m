@@ -33,17 +33,7 @@
     self.waterTips = [[NSMutableArray alloc] init];
     self.elecTips = [[NSMutableArray alloc] init];
     self.gazTips = [[NSMutableArray alloc] init];
-    
-    /*
-    OCTip *tip1 = [[OCTip alloc] initWithType:OC_WATER_TIP name:@"Boire de l'eau" description:@"Il faut boire de l'eau sinon on meurt" rank:4];
-    OCTip *tip2 = [[OCTip alloc] initWithType:OC_ELEC_TIP name:@"Les doigts dans la prise" description:@"Pas les doigts dans la prise sinon on meurt" rank:2];
-    OCTip *tip3 = [[OCTip alloc] initWithType:OC_GAZ_TIP name:@"Respirer le gaz" description:@"Il ne faut pas respirer le gaz sinon on meurt" rank:0];
-    
-    [self.waterTips addObject:tip1];
-    [self.elecTips addObject:tip2];
-    [self.gazTips addObject:tip3];
-    */
-    
+
     self.TCS = [[OCTipsService alloc] initWithDelegate:self];
     [self.TCS launchConnection];
 }
