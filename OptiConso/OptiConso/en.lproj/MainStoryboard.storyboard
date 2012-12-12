@@ -319,26 +319,46 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1225" y="-213"/>
+            <point key="canvasLocation" x="1233" y="-181"/>
         </scene>
-        <!--Table View Controller - Se Comparer-->
+        <!--Comparer View Controller - Se Comparer-->
         <scene sceneID="4FC-Nc-pa9">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EhA-db-ing" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="rdo-Ig-rgH" sceneMemberID="viewController">
+                <tableViewController id="rdo-Ig-rgH" customClass="OCComparerViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Vrz-Ou-jFQ">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" cocoaTouchSystemColor="darkTextColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CompareCell" id="i65-Va-HE5">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CompareCell" textLabel="eIZ-Lr-4ka" detailTextLabel="S5A-J2-MO5" style="IBUITableViewCellStyleSubtitle" id="i65-Va-HE5">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eIZ-Lr-4ka">
+                                            <rect key="frame" x="10" y="2" width="38" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="S5A-J2-MO5">
+                                            <rect key="frame" x="10" y="24" width="47" height="18"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <segue destination="HnP-bX-4QH" kind="push" identifier="CompareSegue" id="RSz-Ru-Hhf"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -351,7 +371,47 @@
             </objects>
             <point key="canvasLocation" x="1816" y="222"/>
         </scene>
-        <!--Modifier View Controller - Modifier-->
+        <!--Comparer With View Controller - Se Comparer-->
+        <scene sceneID="1QL-jQ-sLg">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4QF-WE-9em" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="HnP-bX-4QH" customClass="OCComparerWithViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ib5-Mg-IRq">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" id="Bf3-GC-nFK">
+                                <rect key="frame" x="12" y="11" width="297" height="311"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0S8-YG-rlS">
+                                <rect key="frame" x="80" y="330" width="160" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Changer d'energie" backgroundImage="button.png">
+                                    <color key="titleColor" red="0.5912852998" green="0.82958713139999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="energyButton:" destination="HnP-bX-4QH" eventType="touchUpInside" id="HL8-gc-NGm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Se Comparer" id="apm-XB-7Sf"/>
+                    <connections>
+                        <outlet property="graphView" destination="Bf3-GC-nFK" id="YJV-w3-8VO"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="2360" y="432"/>
+        </scene>
+        <!--Modifier View Controller - Ajouter-->
         <scene sceneID="jjL-Gp-FBg">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KcF-eJ-nge" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -432,7 +492,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Modifier" id="9xF-aR-c9R"/>
+                    <navigationItem key="navigationItem" title="Ajouter" id="9xF-aR-c9R"/>
                     <connections>
                         <outlet property="datePicker" destination="cgZ-ul-AY3" id="WYB-2Y-Y3d"/>
                         <outlet property="energySC" destination="Lfk-Qt-9bx" id="jhk-Ba-1D7"/>
@@ -506,6 +566,16 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     <classes>
         <class className="OCChangerHabitatViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/OCChangerHabitatViewController.h"/>
+        </class>
+        <class className="OCComparerViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OCComparerViewController.h"/>
+        </class>
+        <class className="OCComparerWithViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OCComparerWithViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="energyButton:"/>
+                <relationship kind="outlet" name="graphView" candidateClass="UIWebView"/>
+            </relationships>
         </class>
         <class className="OCConseilTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/OCConseilTableViewController.h"/>

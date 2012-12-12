@@ -21,6 +21,10 @@
 		1BB81938166EDC9400B8C138 /* gaz@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BB81932166EDC9400B8C138 /* gaz@2x.png */; };
 		1BB81939166EDC9400B8C138 /* gaz.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BB81933166EDC9400B8C138 /* gaz.png */; };
 		1BB8193D166EED6000B8C138 /* OCAddValueService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB8193C166EED6000B8C138 /* OCAddValueService.m */; };
+		1BE702701678C99400886EE7 /* OCListCompareService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE7026F1678C99400886EE7 /* OCListCompareService.m */; };
+		1BE702731678CA2200886EE7 /* OCCompare.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE702721678CA2200886EE7 /* OCCompare.m */; };
+		1BE7027A1678CFF100886EE7 /* OCComparerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE702791678CFF100886EE7 /* OCComparerViewController.m */; };
+		1BE7027D1678D7B900886EE7 /* OCComparerWithViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE7027C1678D7B900886EE7 /* OCComparerWithViewController.m */; };
 		1BEA63C11665721D0058AA1C /* OCTipSeparatorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BEA63C01665721D0058AA1C /* OCTipSeparatorCell.m */; };
 		9707334315FE26AE00FD18BB /* graph.png in Resources */ = {isa = PBXBuildFile; fileRef = 9707334215FE26AE00FD18BB /* graph.png */; };
 		9707334815FE28FA00FD18BB /* 18-envelope.png in Resources */ = {isa = PBXBuildFile; fileRef = 9707334515FE28FA00FD18BB /* 18-envelope.png */; };
@@ -86,6 +90,14 @@
 		1BB81933166EDC9400B8C138 /* gaz.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gaz.png; sourceTree = "<group>"; };
 		1BB8193B166EED6000B8C138 /* OCAddValueService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCAddValueService.h; sourceTree = "<group>"; };
 		1BB8193C166EED6000B8C138 /* OCAddValueService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCAddValueService.m; sourceTree = "<group>"; };
+		1BE7026E1678C99400886EE7 /* OCListCompareService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCListCompareService.h; sourceTree = "<group>"; };
+		1BE7026F1678C99400886EE7 /* OCListCompareService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCListCompareService.m; sourceTree = "<group>"; };
+		1BE702711678CA2200886EE7 /* OCCompare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCCompare.h; sourceTree = "<group>"; };
+		1BE702721678CA2200886EE7 /* OCCompare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCCompare.m; sourceTree = "<group>"; };
+		1BE702781678CFF100886EE7 /* OCComparerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCComparerViewController.h; sourceTree = "<group>"; };
+		1BE702791678CFF100886EE7 /* OCComparerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCComparerViewController.m; sourceTree = "<group>"; };
+		1BE7027B1678D7B900886EE7 /* OCComparerWithViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCComparerWithViewController.h; sourceTree = "<group>"; };
+		1BE7027C1678D7B900886EE7 /* OCComparerWithViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCComparerWithViewController.m; sourceTree = "<group>"; };
 		1BEA63BF1665721D0058AA1C /* OCTipSeparatorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCTipSeparatorCell.h; sourceTree = "<group>"; };
 		1BEA63C01665721D0058AA1C /* OCTipSeparatorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTipSeparatorCell.m; sourceTree = "<group>"; };
 		9707334215FE26AE00FD18BB /* graph.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graph.png; sourceTree = "<group>"; };
@@ -196,6 +208,26 @@
 			name = AddValue;
 			sourceTree = "<group>";
 		};
+		1BE7026B1678C93200886EE7 /* ListCompare */ = {
+			isa = PBXGroup;
+			children = (
+				1BE7026E1678C99400886EE7 /* OCListCompareService.h */,
+				1BE7026F1678C99400886EE7 /* OCListCompareService.m */,
+			);
+			name = ListCompare;
+			sourceTree = "<group>";
+		};
+		1BE702771678CFC500886EE7 /* Comparaison */ = {
+			isa = PBXGroup;
+			children = (
+				1BE702781678CFF100886EE7 /* OCComparerViewController.h */,
+				1BE702791678CFF100886EE7 /* OCComparerViewController.m */,
+				1BE7027B1678D7B900886EE7 /* OCComparerWithViewController.h */,
+				1BE7027C1678D7B900886EE7 /* OCComparerWithViewController.m */,
+			);
+			name = Comparaison;
+			sourceTree = "<group>";
+		};
 		9707333C15FE227600FD18BB /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,6 +323,7 @@
 		97928DA1162C688E0081C936 /* ConnectionServices */ = {
 			isa = PBXGroup;
 			children = (
+				1BE7026B1678C93200886EE7 /* ListCompare */,
 				1BA16CD21674EAA900AA179C /* PickHabitat */,
 				1BA16CCB1674E5EC00AA179C /* ListHabitat */,
 				1BB8193A166EECE700B8C138 /* AddValue */,
@@ -313,6 +346,7 @@
 		97928DA8162C89600081C936 /* MesConsos */ = {
 			isa = PBXGroup;
 			children = (
+				1BE702771678CFC500886EE7 /* Comparaison */,
 				C71CD3FB1652647F001B5688 /* OCMesConsosViewController.h */,
 				C71CD3FC1652647F001B5688 /* OCMesConsosViewController.m */,
 				1BB8192B166ED5DF00B8C138 /* OCModifierViewController.h */,
@@ -343,6 +377,8 @@
 				97928DB0162C8AFF0081C936 /* OCTip.m */,
 				1BA16CCF1674E8BF00AA179C /* OCHabitat.h */,
 				1BA16CD01674E8BF00AA179C /* OCHabitat.m */,
+				1BE702711678CA2200886EE7 /* OCCompare.h */,
+				1BE702721678CA2200886EE7 /* OCCompare.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -536,6 +572,10 @@
 				1BA16CCE1674E6A700AA179C /* OCListHabitatService.m in Sources */,
 				1BA16CD11674E8BF00AA179C /* OCHabitat.m in Sources */,
 				1BA16CD51674EAC900AA179C /* OCPickHabitatService.m in Sources */,
+				1BE702701678C99400886EE7 /* OCListCompareService.m in Sources */,
+				1BE702731678CA2200886EE7 /* OCCompare.m in Sources */,
+				1BE7027A1678CFF100886EE7 /* OCComparerViewController.m in Sources */,
+				1BE7027D1678D7B900886EE7 /* OCComparerWithViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
